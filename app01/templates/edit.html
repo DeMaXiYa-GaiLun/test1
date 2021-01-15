@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>edit</title>
+</head>
+<body>
+<h2>店铺{{name}}的商品:</h2>
+<a href="/add/">添加商品</a>
+<table border="1">
+  <tr>
+    <td>
+      商品名称
+    </td>
+    <td>
+      商品价格
+    </td>
+    <td>
+      商品图片
+    </td>
+    <td>
+      <操作></操作>
+    </td>
+  </tr>
+  {% for i in data %}
+  <tr>
+    <td>{{i.name}}</td>
+    <td>{{i.price}}</td>
+    <td><img src="/static/{{i.picture}}.jpg" alt="" style="height:2cm;width:2cm"></td>
+    <td><a href="/delete/{{i.id}}">删除</a></td>
+  </tr>
+  {% endfor %}
+</table>
+</body>
+</html>

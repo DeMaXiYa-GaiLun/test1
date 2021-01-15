@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>index</title>
+</head>
+<body>
+{% if user %}
+<h2>店主{{name}}的店：<a href="/edit">管理店铺商品</a></h2>
+<h3>商品信息：</h3>
+<table border="1">
+  <tr>
+    <td>
+      商品名称
+    </td>
+    <td>
+      商品价格
+    </td>
+    <td>
+      商品图片
+    </td>
+  </tr>
+  {% for i in data%}
+  <tr>
+    <td>{{i.name}}</td>
+    <td>{{i.price}}</td>
+    <td><img src="{{i.picture}}" alt="" style="height:2cm;width:2cm"></td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+{% for i in data %}
+<div style="float:left">
+  <h2> 店主{{i.owner}}的店：</h2>
+  <table border="1">
+  <tr>
+    <td>
+      商品名称
+    </td>
+    <td>
+      商品价格
+    </td>
+    <td>
+      商品图片
+    </td>
+  </tr>
+  <tr>
+    <td>{{i.name}}</td>
+    <td>{{i.price}}</td>
+    <td><img src="{{i.picture}}" alt="" style="height:2cm;width:2cm"></td>
+  </tr>
+  </table>
+</div>
+{% endfor %}
+{% endif %}
+
+</body>
+<script>
+
+</script>
+</html>
